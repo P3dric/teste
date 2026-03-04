@@ -1,150 +1,50 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DOOM — HTML + CSS Edition</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      overflow: hidden;
-      background: #000;
-      font-family: Arial, Helvetica, sans-serif;
-      image-rendering: pixelated;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olá Mundo com Estilo</title>
+    <style>
+        /* O CSS começa aqui */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .game {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
 
-    .sky {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(#1e3a5f, #0a1f3a);
-      z-index: 1;
-    }
+        h1 {
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
 
-    .floor {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 50%;
-      background: linear-gradient(#3a2f1e, #1a140c);
-      z-index: 1;
-    }
+        p {
+            color: #636e72;
+        }
 
-    .walls {
-      position: absolute;
-      inset: 0;
-      perspective: 800px;
-      transform-style: preserve-3d;
-      z-index: 5;
-    }
-
-    .slice {
-      position: absolute;
-      bottom: 0;
-      width: 2px;
-      height: 100%;
-      transform-origin: bottom center;
-      will-change: transform, height, background;
-      image-rendering: pixelated;
-    }
-
-    .crosshair {
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-      z-index: 10;
-      color: #0f0;
-      font-size: 30px;
-      line-height: 20px;
-      text-align: center;
-      text-shadow: 0 0 6px #0f0;
-    }
-
-    .hud {
-      position: absolute;
-      bottom: 10px;
-      left: 20px;
-      color: #ff4444;
-      font-size: 28px;
-      font-weight: bold;
-      text-shadow: 2px 2px 0 #000, -2px -2px 0 #000;
-      z-index: 20;
-      pointer-events: none;
-    }
-
-    .instructions {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      color: #aaa;
-      font-size: 14px;
-      background: rgba(0,0,0,0.5);
-      padding: 8px 12px;
-      border-radius: 4px;
-      z-index: 30;
-    }
-  </style>
+        span {
+            color: #0984e3;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-<div class="game">
-  <div class="sky"></div>
-  <div class="floor"></div>
-  
-  <div class="walls" id="walls"></div>
+    <div class="card">
+        <h1>Olá, <span>Mundo!</span></h1>
+        <p>Minha primeira página estilizada com CSS.</p>
+    </div>
 
-  <div class="crosshair">+</div>
-  
-  <div class="hud">
-    HEALTH: 100%   AMMO: 50
-  </div>
-
-  <div class="instructions">
-    WASD / Setas ←↑→↓ = mover<br>
-    Mouse = olhar ao redor<br>
-    Clique = atirar (somente som por enquanto)
-  </div>
-</div>
-
-<script>
-// =============================================
-//  Mini DOOM raycaster — HTML+CSS+JS
-// =============================================
-
-const wallsEl = document.getElementById('walls');
-const FOV = 90;               // campo de visão em graus
-const RESOLUTION = 320;       // quantos "pixels" / fatias
-const MAX_DEPTH = 12;
-
-const world = [
-  "1111111111111111",
-  "1000000000000001",
-  "1011000110000101",
-  "1000000000011001",
-  "1011011111010001",
-  "1000000000000001",
-  "1011111100011101",
-  "1000000000000001",
-  "1111111111111111"
-];
-
-const cellSize = 64;
-let player = {
-  x: 2.5 * cellSize,
-  y: 2.5 * cellSize,
-  angle: Math.PI / 4,     // 45 graus
-  speed: 3.2
+</body>
+</html>

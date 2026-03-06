@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá Mundo com Estilo - Fundo de Planeta</title>
+    <title>Olá Mundo com Estilo</title>
     <style>
         body {
-            /* Fundo de planeta/Terra do espaço */
-            background-image: url('https://images.unsplash.com/photo-1447433589675-4aaa569f3e05?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;          /* Cobrir toda a tela */
-            background-position: center;     /* Centralizar */
-            background-repeat: no-repeat;    /* Não repetir */
-            background-attachment: fixed;    /* Fixo ao scroll (efeito parallax legal) */
-
-            /* Fallback: um gradiente caso a imagem demore a carregar */
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #ffffff;                  /* Texto branco para contrastar com o fundo escuro */
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,35 +16,32 @@
         }
 
         .card {
-            background-color: rgba(247, 247, 247, 0.15); /* Semi-transparente para ver o fundo */
-            backdrop-filter: blur(10px);     /* Efeito de vidro fosco (muito bonito no espaço) */
-            -webkit-backdrop-filter: blur(10px);
-            padding: 2rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background-color: rgb(247, 247, 247);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: center;
-            max-width: 400px;
-            color: #ffffff;
+            max-width: 320px;
         }
 
         h1 {
+            /* Tentamos fontes decorativas conhecidas + fantasy como fallback */
             font-family: Papyrus, "Chalkduster", fantasy, cursive, sans-serif;
-            color: #ffffff;
-            margin-bottom: 15px;
-            font-weight: 900;
-            font-size: 4rem;
-            text-shadow: 0 0 10px rgba(41, 119, 244, 0.8); /* Glow azul para destacar */
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-weight: 900;          /* Mais grosso para destacar */
+            font-size: 3.5rem;         /* Aumentei para ver melhor o efeito */
+            line-height: 1.1;
         }
 
         p {
-            color: #e0e0e0;
+            color: #333;
             margin: 0;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
         }
 
         span {
-            color: #74b9ff;
+            color: #2977f4;
             font-weight: bold;
         }
     </style>
@@ -63,7 +50,7 @@
 
     <div class="card">
         <h1>Olá, <span>Mundo!</span></h1>
-        <p>Minha primeira página estilizada com CSS... agora no espaço! 🌍✨</p>
+        <p>Minha primeira página estilizada com CSS</p>
     </div>
 
 </body>

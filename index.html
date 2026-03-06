@@ -5,46 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olá Mundo com Estilo</title>
     <style>
-        /* O CSS começa aqui */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: linear-gradient(135deg, #74b9ff, #a29bfe);
-        display: flex;
-       justify-content: center;
-       align-items: center;
-       height: 100vh;
-       margin: 0;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
 
-{
-          font-family: 'fantasy', sans-serif;
-    background: linear-gradient(135deg, #74b9ff, #a29bfe);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0; 
-
-}
-
         .card {
-              background-color: rgb(247, 247, 247);       /* Mantém o fundo branco */
-    padding: 1.5rem 2rem;          /* Menos espaço interno */
-    border-radius: 10px;           /* Cantos arredondados, mas mais sutis */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave e discreta */
-    text-align: center;
-    max-width: 300px;              /* Limita o tamanho para ficar mais clean */
+            background-color: rgb(247, 247, 247);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            max-width: 320px;
         }
 
         h1 {
-          font-family: 'fantasy', sans-serif; /* Troca a fonte do título */
-    color: #2d3436;
-    margin-bottom: 10px;
-    font-weight: 600; /* Deixa mais marcante */
+            /* Tentamos fontes decorativas conhecidas + fantasy como fallback */
+            font-family: Papyrus, "Chalkduster", fantasy, cursive, sans-serif;
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-weight: 900;          /* Mais grosso para destacar */
+            font-size: 3.5rem;         /* Aumentei para ver melhor o efeito */
+            line-height: 1.1;
         }
 
         p {
-            color: #000000;
+            color: #333;
+            margin: 0;
+            font-size: 1.1rem;
         }
 
         span {

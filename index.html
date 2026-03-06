@@ -1,57 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá Mundo com Estilo</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #74b9ff, #a29bfe);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .card {
-            background-color: rgb(247, 247, 247);
-            padding: 1.5rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 320px;
-        }
-
-        h1 {
-            /* Tentamos fontes decorativas conhecidas + fantasy como fallback */
-            font-family: Papyrus, "Chalkduster", fantasy, cursive, sans-serif;
-            color: #2d3436;
-            margin-bottom: 10px;
-            font-weight: 900;          /* Mais grosso para destacar */
-            font-size: 3.5rem;         /* Aumentei para ver melhor o efeito */
-            line-height: 1.1;
-        }
-
-        p {
-            color: #333;
-            margin: 0;
-            font-size: 1.1rem;
-        }
-
-        span {
-            color: #2977f4;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Teste Fantasy Real</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 40px;
+      text-align: center;
+    }
+    .teste {
+      font-size: 4rem;
+      margin: 30px;
+      font-weight: bold;
+    }
+    .serif    { font-family: serif; }
+    .sans     { font-family: sans-serif; }
+    .mono     { font-family: monospace; }
+    .cursive  { font-family: cursive; }
+    .fantasy  { font-family: fantasy; }
+    .papyrus  { font-family: Papyrus, fantasy; }
+    .impact   { font-family: Impact, fantasy; }
+  </style>
 </head>
 <body>
 
-    <div class="card">
-        <h1>Olá, <span>Mundo!</span></h1>
-        <p>Minha primeira página estilizada com CSS</p>
-    </div>
+  <h1>Teste de famílias genéricas (compare visualmente)</h1>
+
+  <p class="teste serif">Serif (geralmente Times New Roman)</p>
+  <p class="teste sans">Sans-serif (geralmente Arial)</p>
+  <p class="teste mono">Monospace (geralmente Courier New)</p>
+  <p class="teste cursive">Cursive (pode ser Comic Sans ou algo manuscrito)</p>
+  <p class="teste fantasy">Fantasy puro ← olhe aqui! (pode parecer Impact ou nada)</p>
+  <p class="teste papyrus">Papyrus + fantasy (deve aparecer decorativo se instalado)</p>
+  <p class="teste impact">Impact + fantasy (bem grosso e condensado)</p>
+
+  <p style="font-size: 1.2rem; margin-top: 50px;">
+ 
+  </p>
 
 </body>
 </html>

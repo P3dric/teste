@@ -1,44 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Teste Fantasy Real</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      padding: 40px;
-      text-align: center;
-    }
-    .teste {
-      font-size: 4rem;
-      margin: 30px;
-      font-weight: bold;
-    }
-    .serif    { font-family: serif; }
-    .sans     { font-family: sans-serif; }
-    .mono     { font-family: monospace; }
-    .cursive  { font-family: cursive; }
-    .fantasy  { font-family: fantasy; }
-    .papyrus  { font-family: Papyrus, fantasy; }
-    .impact   { font-family: Impact, fantasy; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olá Mundo com Estilo - Fundo de Planeta</title>
+    <style>
+        body {
+            /* Fundo de planeta/Terra do espaço */
+            background-image: url('https://images.unsplash.com/photo-1447433589675-4aaa569f3e05?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;          /* Cobrir toda a tela */
+            background-position: center;     /* Centralizar */
+            background-repeat: no-repeat;    /* Não repetir */
+            background-attachment: fixed;    /* Fixo ao scroll (efeito parallax legal) */
+
+            /* Fallback: um gradiente caso a imagem demore a carregar */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;                  /* Texto branco para contrastar com o fundo escuro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background-color: rgba(247, 247, 247, 0.15); /* Semi-transparente para ver o fundo */
+            backdrop-filter: blur(10px);     /* Efeito de vidro fosco (muito bonito no espaço) */
+            -webkit-backdrop-filter: blur(10px);
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            max-width: 400px;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-family: Papyrus, "Chalkduster", fantasy, cursive, sans-serif;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 900;
+            font-size: 4rem;
+            text-shadow: 0 0 10px rgba(41, 119, 244, 0.8); /* Glow azul para destacar */
+        }
+
+        p {
+            color: #e0e0e0;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+
+        span {
+            color: #74b9ff;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Teste de famílias genéricas (compare visualmente)</h1>
-
-  <p class="teste serif">Serif (geralmente Times New Roman)</p>
-  <p class="teste sans">Sans-serif (geralmente Arial)</p>
-  <p class="teste mono">Monospace (geralmente Courier New)</p>
-  <p class="teste cursive">Cursive (pode ser Comic Sans ou algo manuscrito)</p>
-  <p class="teste fantasy">Fantasy puro ← olhe aqui! (pode parecer Impact ou nada)</p>
-  <p class="teste papyrus">Papyrus + fantasy (deve aparecer decorativo se instalado)</p>
-  <p class="teste impact">Impact + fantasy (bem grosso e condensado)</p>
-
-  <p style="font-size: 1.2rem; margin-top: 50px;">
- 
-  </p>
+    <div class="card">
+        <h1>Olá, <span>Mundo!</span></h1>
+        <p>Minha primeira página estilizada com CSS... agora no espaço! 🌍✨</p>
+    </div>
 
 </body>
 </html>

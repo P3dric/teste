@@ -1,6 +1,3 @@
-Aqui está o código **atualizado** com os botões pessoais removidos ("Olá Mundo Estelar" e "Exploração da Via Láctea"). Agora só ficam os dois botões oficiais principais, menores, lado a lado, com o design compacto e cósmico mantido. Links confirmados e ativos em março de 2026 (NASA Roman de jan/2026 e ESO/ALMA eso2603 de fev/2026).
-
-```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,6 +19,9 @@ Aqui está o código **atualizado** com os botões pessoais removidos ("Olá Mun
             padding:1.5rem;
             position:relative;
             overflow:hidden;
+            
+            /* Cursor de estrela em toda a página */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), auto;
         }
         body::before {
             content:"";
@@ -82,6 +82,9 @@ Aqui está o código **atualizado** com os botões pessoais removidos ("Olá Mun
             min-width:280px;
             box-shadow:0 4px 15px rgba(0,0,0,0.5);
             text-align:center;
+            
+            /* Mantém o cursor de estrela nos botões também */
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), pointer;
         }
         .btn:hover {
             background:rgba(0,220,255,0.2);

@@ -94,7 +94,7 @@
             border-radius: 12px;
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
-            min-width: 280px;
+            min-width: 320px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
@@ -132,23 +132,24 @@
 
     <div class="content">
         <h1>Via Láctea Cósmica</h1>
-        <p class="subtitle">Nossa galáxia espiral barrada – explore fontes oficiais e confiáveis.</p>
+        <p class="subtitle">Explore fontes oficiais atualizadas sobre nossa galáxia (NASA, ESA, ESO – 2026).</p>
 
         <nav class="menu">
-            <!-- Botões para suas páginas existentes (se quiser manter) -->
+            <!-- Botões para suas páginas pessoais (opcional) -->
             <a href="ola-mundo.html" class="btn">Olá Mundo Estelar</a>
             <a href="via-lactea.html" class="btn">Exploração da Via Láctea</a>
 
-            <!-- Botões para links oficiais atualizados e funcionais -->
-            <a href="https://science.nasa.gov/universe/galaxies/milky-way" target="_blank" rel="noopener noreferrer" class="btn official">NASA – Milky Way Galaxy</a>
-            <a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia" target="_blank" rel="noopener noreferrer" class="btn official">ESA Gaia – Mapa 3D da Via Láctea</a>
-            <a href="https://www.eso.org/public/news/archive/category/milky_way/" target="_blank" rel="noopener noreferrer" class="btn official">ESO – Arquivo de Notícias da Via Láctea</a>
-            <a href="https://science.nasa.gov/mission/hubble/science/universe-uncovered/hubble-galaxies" target="_blank" rel="noopener noreferrer" class="btn official">NASA Hubble – Galáxias e Via Láctea</a>
+            <!-- Novas fontes oficiais funcionais -->
+            <a href="https://www.nasa.gov/universe/galaxies/milky-way" target="_blank" rel="noopener noreferrer" class="btn official">NASA – The Milky Way (visão geral e notícias recentes)</a>
+            <a href="https://science.nasa.gov/universe/galaxies" target="_blank" rel="noopener noreferrer" class="btn official">NASA Science – Galaxy Basics (inclui Milky Way)</a>
+            <a href="https://www.esa.int/Science_Exploration/Space_Science/Gaia" target="_blank" rel="noopener noreferrer" class="btn official">ESA Gaia – Mapa 3D da Via Láctea (bilhões de estrelas)</a>
+            <a href="https://www.cosmos.esa.int/web/gaia/milky-way" target="_blank" rel="noopener noreferrer" class="btn official">Gaia Cosmos – Mapa artístico e dados da Via Láctea</a>
+            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO – Imagem química do centro da Via Láctea (2026)</a>
         </nav>
     </div>
 
     <script>
-        // Estrelas minimalistas: poucas, pequenas e discretas
+        // Estrelas minimalistas
         const starsContainer = document.querySelector('.stars');
         for (let i = 0; i < 50; i++) {
             const star = document.createElement('div');

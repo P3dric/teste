@@ -1,128 +1,106 @@
+Aqui está o código **atualizado** com os botões pessoais removidos ("Olá Mundo Estelar" e "Exploração da Via Láctea"). Agora só ficam os dois botões oficiais principais, menores, lado a lado, com o design compacto e cósmico mantido. Links confirmados e ativos em março de 2026 (NASA Roman de jan/2026 e ESO/ALMA eso2603 de fev/2026).
+
+```html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Láctea Cósmica</title>
+    <title>Via Láctea Cósmica – 2026</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin:0; padding:0; box-sizing:border-box; }
         body {
-            min-height: 100vh;
-            background: #000;
-            color: #e0f7ff;
-            font-family: system-ui, -apple-system, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
+            min-height:100vh;
+            background:#000;
+            color:#e0f7ff;
+            font-family:system-ui, sans-serif;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            padding:1.5rem;
+            position:relative;
+            overflow:hidden;
         }
-
         body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(circle at center, rgba(10, 20, 40, 0.3) 0%, #000 70%);
-            z-index: -2;
-            pointer-events: none;
+            content:"";
+            position:fixed;
+            inset:0;
+            background:radial-gradient(circle at center, rgba(10,20,40,0.4) 0%, #000 75%);
+            z-index:-2;
         }
-
         .stars {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -1;
+            position:fixed;
+            inset:0;
+            pointer-events:none;
+            z-index:-1;
         }
-
         .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle 10s infinite ease-in-out;
+            position:absolute;
+            background:#fff;
+            border-radius:50%;
+            opacity:0.6;
+            animation:twinkle 8s infinite ease-in-out;
         }
-
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50%      { opacity: 0.7; }
+            0%,100% { opacity:0.4; }
+            50%     { opacity:0.9; }
         }
-
-        .content {
-            max-width: 900px;
-            z-index: 1;
-        }
-
+        .content { max-width:960px; z-index:1; }
         h1 {
-            font-size: clamp(4rem, 12vw, 7.5rem);
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 3px;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            font-size:clamp(4rem, 12vw, 7.5rem);
+            font-weight:900;
+            color:#fff;
+            letter-spacing:3px;
+            margin-bottom:1rem;
+            text-shadow:0 0 18px rgba(0,220,255,0.5);
         }
-
         .subtitle {
-            font-size: clamp(1.4rem, 4vw, 1.8rem);
-            color: #b0d0ff;
-            margin-bottom: 4rem;
-            max-width: 700px;
-            opacity: 0.9;
+            font-size:clamp(1.3rem, 4vw, 1.6rem);
+            color:#c0e0ff;
+            margin-bottom:2.5rem;
+            max-width:700px;
+            opacity:0.9;
         }
-
         .menu {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.8rem 2.5rem;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+            gap:1.2rem 2rem;
         }
-
         .btn {
-            padding: 1.4rem 3rem;
-            font-size: 1.4rem;
-            color: #ffffff;
-            text-decoration: none;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(0, 240, 255, 0.3);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            min-width: 320px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            padding:1rem 2.2rem;
+            font-size:1.2rem;
+            color:#fff;
+            text-decoration:none;
+            background:rgba(255,255,255,0.07);
+            border:1px solid rgba(0,220,255,0.4);
+            border-radius:10px;
+            backdrop-filter:blur(10px);
+            transition:all 0.3s ease;
+            min-width:280px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.5);
+            text-align:center;
         }
-
         .btn:hover {
-            background: rgba(0, 240, 255, 0.15);
-            border-color: #00f0ff;
-            transform: translateY(-6px);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+            background:rgba(0,220,255,0.2);
+            border-color:#00d4ff;
+            transform:translateY(-5px);
+            box-shadow:0 0 25px rgba(0,220,255,0.6);
         }
-
-        .btn.official {
-            border-color: rgba(0, 255, 180, 0.4);
-        }
-
+        .btn.official { border-color:rgba(0,255,200,0.5); }
         .btn.official:hover {
-            background: rgba(0, 255, 180, 0.2);
-            border-color: #00ffb4;
-            box-shadow: 0 0 35px rgba(0, 255, 180, 0.6);
+            background:rgba(0,255,200,0.25);
+            border-color:#00ffc8;
+            box-shadow:0 0 30px rgba(0,255,200,0.7);
         }
-
-        @media (max-width: 768px) {
-            .menu { flex-direction: column; gap: 1.5rem; }
-            .btn { width: 100%; max-width: 380px; }
-            h1 { font-size: clamp(3.5rem, 10vw, 6rem); }
+        @media (max-width: 700px) {
+            .menu { gap:1rem 1.5rem; }
+            .btn { min-width:260px; padding:0.9rem 1.8rem; font-size:1.1rem; }
         }
-
         @media (prefers-reduced-motion: reduce) {
-            .star, .btn { animation: none; transform: none !important; }
+            .star, .btn { animation:none !important; transform:none !important; }
         }
     </style>
 </head>
@@ -132,30 +110,24 @@
 
     <div class="content">
         <h1>Via Láctea Cósmica</h1>
-        <p class="subtitle">Fontes oficiais novas e atualizadas sobre nossa galáxia (2026).</p>
+        <p class="subtitle">Fontes oficiais atualizadas – Março 2026</p>
 
         <nav class="menu">
-            <!-- Botões para suas páginas pessoais (opcional) -->
-            <a href="ola-mundo.html" class="btn">Olá Mundo Estelar</a>
-            <a href="via-lactea.html" class="btn">Exploração da Via Láctea</a>
-
-            <!-- Dois links totalmente novos e oficiais -->
-            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA – Jornada ao Centro da Via Láctea com o Roman Telescope (2026)</a>
-            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO – Maior Imagem do Coração da Via Láctea (Química Oculta – 2026)</a>
+            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA – Centro da Via Láctea com Roman (Jan 2026)</a>
+            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior Imagem do Coração da Via Láctea (Fev 2026)</a>
         </nav>
     </div>
 
     <script>
-        // Estrelas minimalistas
         const starsContainer = document.querySelector('.stars');
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            const size = Math.random() * 2 + 0.5;
-            star.style.width = star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 10 + 's';
+            const size = Math.random() * 2.5 + 0.5;
+            star.style.width = star.style.height = `${size}px`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 8}s`;
             starsContainer.appendChild(star);
         }
     </script>

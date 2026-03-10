@@ -20,7 +20,7 @@
             position:relative;
             overflow:hidden;
             
-            /* Cursor de estrela em toda a página */
+            /* Cursor de estrela */
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), auto;
         }
         body::before {
@@ -82,8 +82,6 @@
             min-width:280px;
             box-shadow:0 4px 15px rgba(0,0,0,0.5);
             text-align:center;
-            
-            /* Mantém o cursor de estrela nos botões também */
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), pointer;
         }
         .btn:hover {
@@ -99,15 +97,16 @@
             box-shadow:0 0 30px rgba(0,255,200,0.7);
         }
 
-        /* Player invisível do YouTube */
-        .youtube-background {
+        /* Player YouTube invisível */
+        .bg-audio {
             position: fixed;
-            top: -9999px;     /* tira da tela */
+            top: -9999px;
             left: -9999px;
             width: 1px;
             height: 1px;
             opacity: 0;
-            z-index: -10;
+            pointer-events: none;
+            z-index: -999;
         }
 
         @media (max-width: 700px) {
@@ -121,12 +120,15 @@
 </head>
 <body>
 
-    <!-- Player de fundo do YouTube (invisível) -->
-    <div class="youtube-background">
+    <!-- Música de fundo (Space Ambient - Exoplanet) -->
+    <div class="bg-audio">
         <iframe 
+            width="1" 
+            height="1" 
             src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&loop=1&playlist=X-XZx1o_w-A&mute=0&controls=0&showinfo=0&rel=0&modestbranding=1"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
+            title="Space Ambient Music – Deep Relaxation"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
     </div>
@@ -135,7 +137,7 @@
 
     <div class="content">
         <h1>Via Láctea Cósmica</h1>
-        <p class="subtitle">Fontes oficiais atualizadas – Março 2026<br>♪ Ambiente espacial relaxante tocando ao fundo</p>
+        <p class="subtitle">Fontes oficiais atualizadas – Março 2026<br>♪ Ambiente espacial relaxante ao fundo (clique na página se o som não iniciar)</p>
 
         <nav class="menu">
             <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA – Centro da Via Láctea com Roman (Jan 2026)</a>
@@ -144,6 +146,7 @@
     </div>
 
     <script>
+        // Gera estrelas piscando
         const starsContainer = document.querySelector('.stars');
         for (let i = 0; i < 100; i++) {
             const star = document.createElement('div');
@@ -156,12 +159,16 @@
             starsContainer.appendChild(star);
         }
 
-        // Dica opcional: tenta "desbloquear" áudio após interação do usuário
-        document.body.addEventListener('click', function() {
+        // Tenta "despertar" o áudio após primeira interação (clique)
+        document.addEventListener('click', function unlockAudio() {
             const iframe = document.querySelector('iframe');
             if (iframe) {
-                iframe.src = iframe.src; // recarrega → pode ajudar em alguns casos
+                // Pequeno truque: recarrega o src para forçar play em alguns navegadores
+                const currentSrc = iframe.src;
+                iframe.src = currentSrc;
             }
+            // Remove o listener para não repetir
+            document.removeEventListener('click', unlockAudio);
         }, { once: true });
     </script>
 

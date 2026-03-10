@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Via Láctea – 2026</title>
+    <title>Via Láctea 2026 – O Coração Revelado</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -19,7 +19,6 @@
             padding:1.5rem;
             position:relative;
             overflow:hidden;
-            
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), auto;
         }
         body::before {
@@ -44,9 +43,9 @@
         }
         @keyframes twinkle {
             0%,100% { opacity:0.4; }
-            50%     { opacity:0.9; }
+            50% { opacity:0.9; }
         }
-        .content { max-width:960px; z-index:1; }
+        .content { max-width:1100px; z-index:1; width:100%; }
         h1 {
             font-size:clamp(4rem, 12vw, 7.5rem);
             font-weight:900;
@@ -59,29 +58,34 @@
             font-size:clamp(1.3rem, 4vw, 1.6rem);
             color:#c0e0ff;
             margin-bottom:2.5rem;
-            max-width:700px;
+            max-width:800px;
             opacity:0.9;
+            margin-left:auto;
+            margin-right:auto;
         }
         .menu {
             display:flex;
             flex-wrap:wrap;
             justify-content:center;
-            gap:1.2rem 2rem;
+            gap:1.5rem 2.5rem;          /* Mais espaço lateral e vertical */
+            padding:0 1rem;
         }
         .btn {
-            padding:1rem 2.2rem;
-            font-size:1.2rem;
+            padding:1.1rem 2.4rem;
+            font-size:1.15rem;
             color:#fff;
             text-decoration:none;
             background:rgba(255,255,255,0.07);
             border:1px solid rgba(0,220,255,0.4);
-            border-radius:10px;
+            border-radius:12px;
             backdrop-filter:blur(10px);
             transition:all 0.3s ease;
-            min-width:280px;
+            min-width:320px;               /* Largura mínima maior para alinhamento */
+            max-width:380px;               /* Evita que fiquem muito largos */
             box-shadow:0 4px 15px rgba(0,0,0,0.5);
             text-align:center;
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), pointer;
+            flex: 1 1 320px;               /* Permite crescer/encolher uniformemente */
         }
         .btn:hover {
             background:rgba(0,220,255,0.2);
@@ -95,7 +99,6 @@
             border-color:#00ffc8;
             box-shadow:0 0 30px rgba(0,255,200,0.7);
         }
-
         /* Player invisível */
         .bg-audio {
             position: fixed;
@@ -107,8 +110,6 @@
             pointer-events: none;
             z-index: -999;
         }
-
-        /* Overlay para ativar som */
         #audio-unlocker {
             position: fixed;
             inset: 0;
@@ -126,10 +127,12 @@
         #audio-unlocker:hover {
             background: rgba(0,0,0,0.4);
         }
-
-        @media (max-width: 700px) {
-            .menu { gap:1rem 1.5rem; }
-            .btn { min-width:260px; padding:0.9rem 1.8rem; font-size:1.1rem; }
+        @media (max-width: 900px) {
+            .menu { gap:1.2rem 1.8rem; }
+            .btn { min-width:300px; max-width:360px; padding:1rem 2rem; font-size:1.1rem; }
+        }
+        @media (max-width: 600px) {
+            .btn { min-width:90%; max-width:none; }
         }
         @media (prefers-reduced-motion: reduce) {
             .star, .btn { animation:none !important; transform:none !important; }
@@ -137,19 +140,16 @@
     </style>
 </head>
 <body>
-
-    <!-- Overlay inicial para ativar som (some após clique) -->
     <div id="audio-unlocker">Clique em qualquer lugar para ativar o som cósmico 🌌</div>
 
-    <!-- Música de fundo: Space Ambient Music – Deep Relaxation -->
     <div class="bg-audio">
-        <iframe 
+        <iframe
             id="bg-iframe"
-            width="1" 
-            height="1" 
+            width="1"
+            height="1"
             src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A&controls=0&showinfo=0&rel=0&modestbranding=1"
             title="Space Ambient Music • Deep Relaxation Space Scenes"
-            frameborder="0" 
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
@@ -158,22 +158,26 @@
     <div class="stars"></div>
 
     <div class="content">
-        <h1>Via Láctea Cósmica</h1>
-        <p class="subtitle">   Fontes oficiais atualizadas – Março 2026<br>
+        <h1>Via Láctea 2026</h1>
+        <p class="subtitle">As maiores descobertas e imagens do coração da nossa galáxia – Março 2026<br>♪ Som ambiente espacial profundo (clique para ativar)</p>
 
         <nav class="menu">
-            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA – Centro da Via Láctea com Roman (Jan 2026)</a>
-            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior Imagem do Coração da Via Láctea (Fev 2026)</a>
+            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Viagem ao Centro da Via Láctea (Core Survey 2026)</a>
+            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior imagem do coração da Via Láctea (Fev 2026)</a>
+            <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações do Bulbo Galáctico e Sagittarius A* (2025–2026)</a>
+            <a href="https://www.cosmos.esa.int/web/gaia/release" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (Dez 2026)</a>
+            <a href="https://www.eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações de imagens de Sgr A* (2025/2026)</a>
+            <a href="https://www.nasa.gov/missions/roman-space-telescope/" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Galactic Bulge Time-Domain Survey (2026+)</a>
         </nav>
     </div>
 
     <script>
         // Gera estrelas piscando
         const starsContainer = document.querySelector('.stars');
-        for (let i = 0; i < 100; i++) {
+        for (let i = 0; i < 140; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            const size = Math.random() * 2.5 + 0.5;
+            const size = Math.random() * 2.8 + 0.4;
             star.style.width = star.style.height = `${size}px`;
             star.style.left = `${Math.random() * 100}%`;
             star.style.top = `${Math.random() * 100}%`;
@@ -181,30 +185,22 @@
             starsContainer.appendChild(star);
         }
 
-        // Ativa som ao clicar (remove overlay + unmute + força play)
+        // Ativa som ao clicar
         document.addEventListener('click', function unlockAudio() {
             const overlay = document.getElementById('audio-unlocker');
             if (overlay) {
                 overlay.style.opacity = '0';
                 setTimeout(() => overlay.remove(), 800);
             }
-
             const iframe = document.getElementById('bg-iframe');
             if (iframe) {
                 let src = iframe.src;
-                // Remove mute=1 e garante autoplay
                 src = src.replace('&mute=1', '&mute=0');
-                if (!src.includes('mute=0')) {
-                    src += '&mute=0';
-                }
-                // Força reload para aplicar mudanças
+                if (!src.includes('mute=0')) src += '&mute=0';
                 iframe.src = src;
             }
-
-            // Remove listener para não repetir
             document.removeEventListener('click', unlockAudio);
         }, { once: true });
     </script>
-
 </body>
 </html>

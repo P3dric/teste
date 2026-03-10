@@ -47,12 +47,23 @@
         }
         .content { max-width:1100px; z-index:1; width:100%; }
         h1 {
-            font-size:clamp(4rem, 12vw, 7.5rem);
-            font-weight:900;
-            color:#fff;
-            letter-spacing:3px;
-            margin-bottom:1rem;
-            text-shadow:0 0 18px rgba(0,220,255,0.5);
+            font-size: clamp(4rem, 12vw, 7.5rem);
+            font-weight: 900;
+            background: linear-gradient(45deg, #00d4ff, #ff007f);
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 25px rgba(255,0,127,0.8);
+            animation: titleGlow 2s infinite alternate;
+        }
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 25px rgba(255,0,127,0.8);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(0,220,255,1), 0 0 45px rgba(255,0,127,1);
+            }
         }
         .subtitle {
             font-size:clamp(1.3rem, 4vw, 1.6rem);
@@ -67,7 +78,7 @@
             display:flex;
             flex-wrap:wrap;
             justify-content:center;
-            gap:1.5rem 2.5rem;          /* Mais espaço lateral e vertical */
+            gap:1.5rem 2.5rem;
             padding:0 1rem;
         }
         .btn {
@@ -80,12 +91,12 @@
             border-radius:12px;
             backdrop-filter:blur(10px);
             transition:all 0.3s ease;
-            min-width:320px;               /* Largura mínima maior para alinhamento */
-            max-width:380px;               /* Evita que fiquem muito largos */
+            min-width:320px;
+            max-width:380px;
             box-shadow:0 4px 15px rgba(0,0,0,0.5);
             text-align:center;
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), pointer;
-            flex: 1 1 320px;               /* Permite crescer/encolher uniformemente */
+            flex: 1 1 320px;
         }
         .btn:hover {
             background:rgba(0,220,255,0.2);
@@ -167,40 +178,4 @@
             <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações do Bulbo Galáctico e Sagittarius A* (2025–2026)</a>
             <a href="https://www.cosmos.esa.int/web/gaia/release" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (Dez 2026)</a>
             <a href="https://www.eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações de imagens de Sgr A* (2025/2026)</a>
-            <a href="https://www.nasa.gov/missions/roman-space-telescope/" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Galactic Bulge Time-Domain Survey (2026+)</a>
-        </nav>
-    </div>
-
-    <script>
-        // Gera estrelas piscando
-        const starsContainer = document.querySelector('.stars');
-        for (let i = 0; i < 140; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            const size = Math.random() * 2.8 + 0.4;
-            star.style.width = star.style.height = `${size}px`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 8}s`;
-            starsContainer.appendChild(star);
-        }
-
-        // Ativa som ao clicar
-        document.addEventListener('click', function unlockAudio() {
-            const overlay = document.getElementById('audio-unlocker');
-            if (overlay) {
-                overlay.style.opacity = '0';
-                setTimeout(() => overlay.remove(), 800);
-            }
-            const iframe = document.getElementById('bg-iframe');
-            if (iframe) {
-                let src = iframe.src;
-                src = src.replace('&mute=1', '&mute=0');
-                if (!src.includes('mute=0')) src += '&mute=0';
-                iframe.src = src;
-            }
-            document.removeEventListener('click', unlockAudio);
-        }, { once: true });
-    </script>
-</body>
-</html>
+            <a href="https://www.nasa.gov/missions/roman-space-telescope/" target="_blank"

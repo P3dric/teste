@@ -10,16 +10,16 @@
             min-height:100vh;
             background:#000;
             color:#e0f7ff;
-            font-family:system-ui, sans-serif;
+            font-family:system-ui, -apple-system, sans-serif;
             display:flex;
             flex-direction:column;
             align-items:center;
             justify-content:center;
             text-align:center;
-            padding:1.5rem;
+            padding:1.5rem 1rem;
             position:relative;
-            overflow:hidden;
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), auto;
+            overflow-x:hidden;
+            overflow-y:auto;
         }
         body::before {
             content:"";
@@ -38,90 +38,101 @@
             position:absolute;
             background:#fff;
             border-radius:50%;
-            opacity:0.6;
-            animation:twinkle 8s infinite ease-in-out;
+            opacity:0.7;
+            animation:twinkle 10s infinite ease-in-out;
         }
         @keyframes twinkle {
             0%,100% { opacity:0.4; }
-            50% { opacity:0.9; }
+            50% { opacity:1; }
         }
-        .content { max-width:1100px; z-index:1; width:100%; }
+        .content { 
+            max-width:1200px; 
+            z-index:1; 
+            width:100%; 
+        }
         h1 {
-            font-size: clamp(4rem, 12vw, 7.5rem);
+            font-size: clamp(3.5rem, 11vw, 8rem);
             font-weight: 900;
-            background: linear-gradient(45deg, #00d4ff, #ff007f);
+            background: linear-gradient(45deg, #00d4ff, #ff007f, #00ff9d);
             background-clip: text;
+            -webkit-background-clip: text;
             color: transparent;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 25px rgba(255,0,127,0.8);
-            animation: titleGlow 2s infinite alternate;
+            letter-spacing: 4px;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 0 20px rgba(0,212,255,0.9), 0 0 35px rgba(255,0,127,0.8);
+            animation: titleGlow 3s infinite alternate;
         }
         @keyframes titleGlow {
-            0% { text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 25px rgba(255,0,127,0.8); }
-            100% { text-shadow: 0 0 30px rgba(0,220,255,1), 0 0 45px rgba(255,0,127,1); }
+            0% { text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 30px rgba(255,0,127,0.7); }
+            100% { text-shadow: 0 0 35px rgba(0,220,255,1), 0 0 50px rgba(255,0,127,0.9); }
         }
         .subtitle {
-            font-size:clamp(1.3rem, 4vw, 1.6rem);
+            font-size:clamp(1.3rem, 4vw, 1.8rem);
             color:#c0e0ff;
-            margin-bottom:2.5rem;
-            max-width:800px;
-            opacity:0.9;
+            margin-bottom:3rem;
+            max-width:900px;
             margin-left:auto;
             margin-right:auto;
+            line-height:1.45;
         }
         .menu {
             display:flex;
             flex-wrap:wrap;
             justify-content:center;
-            gap:1.5rem 2.5rem;
+            gap:1.8rem 2.8rem;
             padding:0 1rem;
+            margin-bottom:3rem;
         }
         .btn {
-            padding:1.1rem 2.4rem;
-            font-size:1.15rem;
+            padding:1.2rem 2.6rem;
+            font-size:1.2rem;
             color:#fff;
             text-decoration:none;
-            background:rgba(255,255,255,0.07);
-            border:1px solid rgba(0,220,255,0.4);
-            border-radius:12px;
-            backdrop-filter:blur(10px);
-            transition:all 0.3s ease;
-            min-width:320px;
-            max-width:380px;
-            box-shadow:0 4px 15px rgba(0,0,0,0.5);
+            background:rgba(255,255,255,0.08);
+            border:1px solid rgba(0,220,255,0.45);
+            border-radius:14px;
+            backdrop-filter:blur(12px);
+            transition:all 0.35s ease;
+            min-width:340px;
+            max-width:420px;
+            box-shadow:0 5px 18px rgba(0,0,0,0.6);
             text-align:center;
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='0' y='24' font-size='28' fill='white'>⭐</text></svg>"), pointer;
-            flex: 1 1 320px;
+            flex: 1 1 340px;
         }
         .btn:hover {
-            background:rgba(0,220,255,0.2);
+            background:rgba(0,220,255,0.25);
             border-color:#00d4ff;
-            transform:translateY(-5px);
-            box-shadow:0 0 25px rgba(0,220,255,0.6);
+            transform:translateY(-6px);
+            box-shadow:0 0 30px rgba(0,220,255,0.7);
         }
-        .btn.official { border-color:rgba(0,255,200,0.5); }
+        .btn.official { 
+            border-color:rgba(0,255,200,0.55); 
+        }
         .btn.official:hover {
-            background:rgba(0,255,200,0.25);
+            background:rgba(0,255,200,0.3);
             border-color:#00ffc8;
-            box-shadow:0 0 30px rgba(0,255,200,0.7);
+            box-shadow:0 0 35px rgba(0,255,200,0.8);
         }
         .gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 2rem;
+            margin: 2.5rem 0 4rem;
         }
         .gallery img {
             max-width: 100%;
+            width: 480px;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0,212,255,0.5);
-            transition: transform 0.3s;
+            border-radius: 14px;
+            box-shadow: 0 0 25px rgba(0,212,255,0.6);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .gallery img:hover { transform: scale(1.05); }
-        /* Player invisível + unlocker */
+        .gallery img:hover { 
+            transform: scale(1.06);
+            box-shadow: 0 0 40px rgba(0,212,255,0.9);
+        }
+        /* Áudio de fundo */
         .bg-audio {
             position: fixed;
             top: -9999px;
@@ -129,48 +140,51 @@
             width: 1px;
             height: 1px;
             opacity: 0;
-            pointer-events: none;
-            z-index: -999;
         }
         #audio-unlocker {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.75);
             color: #e0f7ff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            z-index: 999;
+            font-size: 2.5rem;
+            z-index: 9999;
             cursor: pointer;
-            backdrop-filter: blur(8px);
-            transition: opacity 0.8s;
+            backdrop-filter: blur(10px);
+            transition: opacity 0.9s ease;
         }
-        #audio-unlocker:hover { background: rgba(0,0,0,0.5); }
+        #audio-unlocker:hover { 
+            background: rgba(0,0,0,0.55); 
+        }
         @media (max-width: 900px) {
-            .menu { gap:1.2rem 1.8rem; }
-            .btn { min-width:300px; max-width:360px; padding:1rem 2rem; font-size:1.1rem; }
+            .menu { gap:1.4rem 2rem; }
+            .btn { min-width:320px; max-width:400px; }
         }
         @media (max-width: 600px) {
-            .btn { min-width:90%; max-width:none; }
+            h1 { font-size: clamp(3rem, 14vw, 5.5rem); }
+            .btn { min-width:100%; max-width:none; padding:1.1rem 1.8rem; }
+            .gallery img { width: 100%; max-width:520px; }
         }
         @media (prefers-reduced-motion: reduce) {
-            .star, .btn, .gallery img { animation:none !important; transform:none !important; }
+            .star, .btn, .gallery img, h1 { animation:none !important; transform:none !important; }
         }
     </style>
 </head>
 <body>
-    <div id="audio-unlocker">Clique em qualquer lugar 
+
+    <div id="audio-unlocker">Toque na tela para ativar som ambiente espacial</div>
 
     <div class="bg-audio">
         <iframe
             id="bg-iframe"
             width="1"
             height="1"
-            src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A&controls=0&showinfo=0&rel=0&modestbranding=1"
-            title="Space Ambient Music • Deep Relaxation Space Scenes"
+            src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
+            title="Música ambiente espacial"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
@@ -179,51 +193,55 @@
 
     <div class="content">
         <h1>Via Láctea 2026</h1>
-        <p class="subtitle">As maiores descobertas e imagens do coração da nossa galáxia – Março 2026<br>♪ Som ambiente espacial profundo (clique para ativar)</p>
+        <p class="subtitle">
+            As maiores descobertas e imagens do coração da nossa galáxia – Março 2026<br>
+            Inclui a maior imagem ALMA já feita do centro galáctico (fevereiro 2026) e flares recentes em Sgr A* observados pelo JWST
+        </p>
 
-        <!-- Galeria com imagens reais das descobertas de 2026 -->
         <div class="gallery">
-            <img src="https://www.eso.org/public/images/eso2603a/" alt="Maior imagem ALMA do centro da Via Láctea (filamentos de gás molecular – Fev 2026)" onerror="this.src='https://via.placeholder.com/600x400/000/fff?text=ALMA+Centro+Via+Lactea';">
+            <img src="https://www.eso.org/public/images/eso2603a/" alt="Maior imagem ALMA do centro da Via Láctea – filamentos de gás molecular (Fev 2026)">
             <img src="https://science.nasa.gov/asset/webb/flaring-disk-around-milky-ways-black-hole-artists-concept" alt="Conceito artístico: Disco de acreção e flares em Sagittarius A* (JWST)">
-            <img src="https://www.universetoday.com/wp-content/uploads/2026/03/ALMA-Milky-Way-Core.jpg" alt="Rede de filamentos gasosos no CMZ – ALMA 2026" onerror="this.src='https://via.placeholder.com/600x400/000/fff?text=JWST+Sgr+A*';">
+            <img src="https://www.universetoday.com/wp-content/uploads/2026/03/ALMA-Milky-Way-Core.jpg" alt="Rede de filamentos gasosos no CMZ – ALMA 2026">
         </div>
 
         <nav class="menu">
             <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Viagem ao Centro da Via Láctea (Core Survey 2026)</a>
             <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior imagem do coração da Via Láctea (Fev 2026)</a>
-            <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações do Bulbo Galáctico e Sagittarius A* (2025–2026)</a>
+            <a href="https://science.nasa.gov/missions/webb" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações recentes de flares em Sagittarius A* (2025–2026)</a>
             <a href="https://www.cosmos.esa.int/web/gaia/release" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (Dez 2026)</a>
             <a href="https://www.eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações de imagens de Sgr A* (2025/2026)</a>
         </nav>
     </div>
 
     <script>
+        // Unlocker de áudio (obrigatório por política de autoplay dos navegadores)
         const unlocker = document.getElementById('audio-unlocker');
         if (unlocker) {
             unlocker.addEventListener('click', () => {
                 unlocker.style.opacity = '0';
-                setTimeout(() => { unlocker.remove(); }, 800);
-                
+                setTimeout(() => { unlocker.remove(); }, 900);
+
                 const iframe = document.getElementById('bg-iframe');
                 if (iframe) {
                     let src = iframe.src;
                     if (src.includes('mute=1')) {
                         src = src.replace('mute=1', 'mute=0');
-                        iframe.src = src;
+                        iframe.src = src;  // recarrega com som
                     }
                 }
-            });
+            }, { once: true });
         }
 
-        // Gera estrelas aleatórias no fundo
+        // Estrelas de fundo aleatórias
         const starsContainer = document.querySelector('.stars');
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 180; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
+            const size = Math.random() * 3 + 1;
+            star.style.width = star.style.height = size + 'px';
             star.style.left = Math.random() * 100 + 'vw';
             star.style.top = Math.random() * 100 + 'vh';
-            star.style.animationDelay = Math.random() * 8 + 's';
+            star.style.animationDelay = Math.random() * 10 + 's';
             starsContainer.appendChild(star);
         }
     </script>

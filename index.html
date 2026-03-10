@@ -175,27 +175,25 @@
         </iframe>
     </div>
 
-    <div class="stars"></div> <!-- Pode adicionar JS para gerar estrelas aleatórias se quiser -->
+    <div class="stars"></div>
 
     <div class="content">
         <h1>Via Láctea 2026</h1>
-        <p class="subtitle">As maiores descobertas de 2026 no coração da nossa galáxia – Março 2026<br>♪ Som ambiente espacial profundo (clique para ativar)</p>
+        <p class="subtitle">As maiores descobertas e imagens do coração da nossa galáxia – Março 2026<br>♪ Som ambiente espacial profundo (clique para ativar)</p>
 
-        <!-- Galeria de imagens reais das descobertas -->
+        <!-- Galeria com imagens reais das descobertas de 2026 -->
         <div class="gallery">
-            <img src="https://cienciaenmagallanes.cl/wp-content/uploads/2026/02/Alma-1.jpg" alt="Maior imagem ALMA do centro da Via Láctea (filamentos de gás molecular – Feb 2026)">
-            <img src="https://www.elperiodista.cl/wp-content/uploads/2026/02/EuropaPress_7321008_vista_alma_gas_molecular_hay_centro_via_lactea-1-750x430.jpg" alt="Detalhe da imagem ALMA do CMZ – rede de filamentos gasosos">
-            <img src="https://cdn.mos.cms.futurecdn.net/mT3zi6jXUdAw5994P3wGHo.png" alt="Conceito artístico: Flare no Sagittarius A* observado pelo JWST">
-            <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/missions/webb/science/2025/webb-STScI-01JKREFYNJE7MT5SG2H0FBYG75-2K.png?w=1920&h=1080&fit=clip&crop=faces%2Cfocalpoint" alt="JWST: Disco de acreção e flares no buraco negro central">
-            <img src="https://www.universetoday.com/article_images/ssc2006-02a_0_20260128_213957.jpg" alt="Visão infravermelha do bulge galáctico (preparando para Roman)">
+            <img src="https://www.eso.org/public/images/eso2603a/" alt="Maior imagem ALMA do centro da Via Láctea (filamentos de gás molecular – Fev 2026)" onerror="this.src='https://via.placeholder.com/600x400/000/fff?text=ALMA+Centro+Via+Lactea';">
+            <img src="https://science.nasa.gov/asset/webb/flaring-disk-around-milky-ways-black-hole-artists-concept" alt="Conceito artístico: Disco de acreção e flares em Sagittarius A* (JWST)">
+            <img src="https://www.universetoday.com/wp-content/uploads/2026/03/ALMA-Milky-Way-Core.jpg" alt="Rede de filamentos gasosos no CMZ – ALMA 2026" onerror="this.src='https://via.placeholder.com/600x400/000/fff?text=JWST+Sgr+A*';">
         </div>
 
         <nav class="menu">
-            <a href="https://roman.gsfc.nasa.gov/science/Galactic_Bulge_Time_Domain_Survey.html" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Galactic Bulge Time-Domain Survey (lançamento outono 2026, survey do centro galáctico)</a>
-            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior imagem do coração da Via Láctea (Fev 2026, filamentos de gás no CMZ)</a>
-            <a href="https://science.nasa.gov/missions/webb/webb-reveals-rapid-fire-light-show-from-milky-ways-central-black-hole/" target="_blank" rel="noopener noreferrer" class="btn">JWST – Flares intensos e atividade constante em Sagittarius A* (2025–2026)</a>
-            <a href="https://www.cosmos.esa.int/web/gaia/data-release-4" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (previsto Dez 2026)</a>
-            <a href="https://eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações em imagens e polarização de Sgr A* (2025/2026)</a>
+            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Viagem ao Centro da Via Láctea (Core Survey 2026)</a>
+            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior imagem do coração da Via Láctea (Fev 2026)</a>
+            <a href="https://www.jwst.nasa.gov/" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações do Bulbo Galáctico e Sagittarius A* (2025–2026)</a>
+            <a href="https://www.cosmos.esa.int/web/gaia/release" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (Dez 2026)</a>
+            <a href="https://www.eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações de imagens de Sgr A* (2025/2026)</a>
         </nav>
     </div>
 
@@ -206,24 +204,23 @@
                 unlocker.style.opacity = '0';
                 setTimeout(() => { unlocker.remove(); }, 800);
                 
-                // Ativa som removendo mute (após interação do usuário)
                 const iframe = document.getElementById('bg-iframe');
                 if (iframe) {
                     let src = iframe.src;
                     if (src.includes('mute=1')) {
                         src = src.replace('mute=1', 'mute=0');
-                        iframe.src = src; // recarrega com som
+                        iframe.src = src;
                     }
                 }
             });
         }
 
-        // Opcional: gera estrelas aleatórias no fundo
+        // Gera estrelas aleatórias no fundo
         const starsContainer = document.querySelector('.stars');
         for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
-            star.style.width = star.style.height = Math.random() * 3 + 'px';
+            star.style.width = star.style.height = Math.random() * 3 + 1 + 'px';
             star.style.left = Math.random() * 100 + 'vw';
             star.style.top = Math.random() * 100 + 'vh';
             star.style.animationDelay = Math.random() * 8 + 's';

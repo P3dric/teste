@@ -247,3 +247,131 @@
     </script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cursor de Estrela ✨</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: #0f0f1a;
+      color: white;
+      font-family: system-ui, sans-serif;
+      cursor: none;           /* esconde o cursor padrão */
+      overflow-x: hidden;
+    }
+
+    /* Área interativa que segue o mouse */
+    .custom-cursor {
+      position: fixed;
+      width: 32px;
+      height: 32px;
+      pointer-events: none;   /* não interfere com cliques */
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: all 0.08s ease-out;
+      mix-blend-mode: difference; /* deixa visível em qualquer fundo */
+    }
+
+    .star {
+      width: 100%;
+      height: 100%;
+      color: #fffb00;
+      font-size: 32px;
+      line-height: 1;
+      text-shadow: 
+        0 0 10px #ffeb3b,
+        0 0 20px #ffeb3b,
+        0 0 30px #ff9800;
+      animation: twinkle 1.8s infinite alternate;
+      user-select: none;
+    }
+
+    @keyframes twinkle {
+      0%   { opacity: 0.7; transform: scale(0.9) rotate(0deg); }
+      100% { opacity: 1.0; transform: scale(1.15) rotate(15deg); }
+    }
+
+    /* Efeito de rastro (opcional) */
+    .trail {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: #ffeb3b;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.6;
+      transition: all 0.4s ease-out;
+      box-shadow: 0 0 12px #ff9800;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="custom-cursor">
+    <div class="star">✦</div>
+  </div>
+
+  <!-- Rastros opcionais (deixam um efeito legal) -->
+  <div class="trail"></div>
+  <div class="trail"></div>
+  <div class="trail"></div>
+
+  <div style="padding: 40px; text-align: center;">
+    <h1 style="margin-top: 30vh; font-size: 3.5rem;">
+      Passe o mouse pela tela ✨
+    </h1>
+    <p style="margin-top: 2rem; font-size: 1.3rem; opacity: 0.8;">
+      Cursor personalizado com estrela brilhante
+    </p>
+  </div>
+
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+    const trails = document.querySelectorAll('.trail');
+
+    let trailIndex = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+
+      // Efeito de rastro (opcional)
+      const trail = trails[trailIndex];
+      trail.style.left = e.clientX + 'px';
+      trail.style.top  = e.clientY + 'px';
+      trail.style.opacity = 0.6;
+
+      setTimeout(() => {
+        trail.style.opacity = 0;
+      }, 300);
+
+      trailIndex = (trailIndex + 1) % trails.length;
+    });
+
+    // Esconde o cursor quando sai da janela
+    document.addEventListener('mouseleave', () => {
+      cursor.style.opacity = 0;
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.style.opacity = 1;
+    });
+  </script>
+
+</body>
+</html>

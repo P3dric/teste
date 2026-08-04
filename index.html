@@ -1,249 +1,399 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Via Láctea 2026 – O Coração Revelado</title>
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body {
-            min-height:100vh;
-            background:#000;
-            color:#e0f7ff;
-            font-family:system-ui, -apple-system, sans-serif;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            padding:1.5rem 1rem;
-            position:relative;
-            overflow-x:hidden;
-            overflow-y:auto;
-        }
-        body::before {
-            content:"";
-            position:fixed;
-            inset:0;
-            background:radial-gradient(circle at center, rgba(10,20,40,0.4) 0%, #000 75%);
-            z-index:-2;
-        }
-        .stars {
-            position:fixed;
-            inset:0;
-            pointer-events:none;
-            z-index:-1;
-        }
-        .star {
-            position:absolute;
-            background:#fff;
-            border-radius:50%;
-            opacity:0.7;
-            animation:twinkle 10s infinite ease-in-out;
-        }
-        @keyframes twinkle {
-            0%,100% { opacity:0.4; }
-            50% { opacity:1; }
-        }
-        .content { 
-            max-width:1200px; 
-            z-index:1; 
-            width:100%; 
-        }
-        h1 {
-            font-size: clamp(3.5rem, 11vw, 8rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, #00d4ff, #ff007f, #00ff9d);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: 4px;
-            margin-bottom: 1.2rem;
-            text-shadow: 0 0 20px rgba(0,212,255,0.9), 0 0 35px rgba(255,0,127,0.8);
-            animation: titleGlow 3s infinite alternate;
-        }
-        @keyframes titleGlow {
-            0% { text-shadow: 0 0 15px rgba(0,220,255,0.8), 0 0 30px rgba(255,0,127,0.7); }
-            100% { text-shadow: 0 0 35px rgba(0,220,255,1), 0 0 50px rgba(255,0,127,0.9); }
-        }
-        .subtitle {
-            font-size:clamp(1.3rem, 4vw, 1.8rem);
-            color:#c0e0ff;
-            margin-bottom:3rem;
-            max-width:900px;
-            margin-left:auto;
-            margin-right:auto;
-            line-height:1.45;
-        }
-        .menu {
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:center;
-            gap:1.8rem 2.8rem;
-            padding:0 1rem;
-            margin-bottom:3rem;
-        }
-        .btn {
-            padding:1.2rem 2.6rem;
-            font-size:1.2rem;
-            color:#fff;
-            text-decoration:none;
-            background:rgba(255,255,255,0.08);
-            border:1px solid rgba(0,220,255,0.45);
-            border-radius:14px;
-            backdrop-filter:blur(12px);
-            transition:all 0.35s ease;
-            min-width:340px;
-            max-width:420px;
-            box-shadow:0 5px 18px rgba(0,0,0,0.6);
-            text-align:center;
-            flex: 1 1 340px;
-        }
-        .btn:hover {
-            background:rgba(0,220,255,0.25);
-            border-color:#00d4ff;
-            transform:translateY(-6px);
-            box-shadow:0 0 30px rgba(0,220,255,0.7);
-        }
-        .btn.official { 
-            border-color:rgba(0,255,200,0.55); 
-        }
-        .btn.official:hover {
-            background:rgba(0,255,200,0.3);
-            border-color:#00ffc8;
-            box-shadow:0 0 35px rgba(0,255,200,0.8);
-        }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2.5rem 0 4rem;
-        }
-        .gallery img {
-            max-width: 100%;
-            width: 480px;
-            height: auto;
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(0,212,255,0.6);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-        .gallery img:hover { 
-            transform: scale(1.06);
-            box-shadow: 0 0 40px rgba(0,212,255,0.9);
-        }
-        /* Áudio de fundo */
-        .bg-audio {
-            position: fixed;
-            top: -9999px;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-        }
-        #audio-unlocker {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.75);
-            color: #e0f7ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            z-index: 9999;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-            transition: opacity 0.9s ease;
-        }
-        #audio-unlocker:hover { 
-            background: rgba(0,0,0,0.55); 
-        }
-        @media (max-width: 900px) {
-            .menu { gap:1.4rem 2rem; }
-            .btn { min-width:320px; max-width:400px; }
-        }
-        @media (max-width: 600px) {
-            h1 { font-size: clamp(3rem, 14vw, 5.5rem); }
-            .btn { min-width:100%; max-width:none; padding:1.1rem 1.8rem; }
-            .gallery img { width: 100%; max-width:520px; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .star, .btn, .gallery img, h1 { animation:none !important; transform:none !important; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olá, Mundo — Dossiê</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#EFE8D8;
+    --papel-linha:#d9cfb4;
+    --papel-2:#e6dcc4;
+    --tinta:#20303a;
+    --tinta-fraca:#5a6a70;
+    --carimbo:#B8532F;
+    --destaque:#3E7C74;
+    --destaque-fundo:#e2ece9;
+    --radius:3px;
+  }
+  *{margin:0; padding:0; box-sizing:border-box;}
+  body{
+    background:var(--papel);
+    background-image:repeating-linear-gradient(0deg, transparent 0 38px, rgba(32,48,58,0.035) 38px 39px);
+    color:var(--tinta);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    padding-bottom:6rem;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  /* ===== MASTHEAD ===== */
+  header{
+    position:relative;
+    max-width:920px;
+    margin:0 auto;
+    padding:4.5rem 1.5rem 2.8rem;
+    text-align:center;
+  }
+  .selo{
+    display:inline-flex;
+    align-items:center;
+    gap:.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.7rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--tinta-fraca);
+    border:1px solid var(--papel-linha);
+    padding:.4rem .9rem;
+    border-radius:20px;
+    margin-bottom:1.6rem;
+  }
+  .selo .ponto{ width:6px; height:6px; border-radius:50%; background:var(--carimbo); }
+
+  h1{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700;
+    font-size:clamp(2.6rem, 8vw, 4.6rem);
+    letter-spacing:-.01em;
+    line-height:1;
+  }
+  h1 .cursor{
+    display:inline-block;
+    width:.5ch;
+    background:var(--tinta);
+    animation:piscar 1s step-end infinite;
+    margin-left:.05em;
+    transform:translateY(-.05em);
+  }
+  @keyframes piscar{ 50%{ opacity:0; } }
+
+  .subtitulo{
+    max-width:560px;
+    margin:1.3rem auto 0;
+    color:var(--tinta-fraca);
+    font-size:1.05rem;
+  }
+
+  /* ===== ESTRUTURA GERAL ===== */
+  main{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 1.5rem;
+  }
+  section{ margin-top:3.6rem; }
+
+  .rotulo-secao{
+    display:flex;
+    align-items:baseline;
+    gap:.9rem;
+    margin-bottom:1.4rem;
+  }
+  .rotulo-secao .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.75rem;
+    color:var(--carimbo);
+    font-weight:600;
+  }
+  .rotulo-secao h2{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.95rem;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+  }
+  .rotulo-secao .fio{
+    flex:1;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--papel-linha) 0 6px, transparent 6px 10px);
+  }
+
+  /* ===== ORIGEM (texto corrido) ===== */
+  .origem{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1rem;
+    font-size:1.02rem;
+  }
+  .origem p strong{ color:var(--tinta); }
+  .citacao{
+    font-family:'IBM Plex Mono', monospace;
+    background:var(--papel-2);
+    border-left:3px solid var(--carimbo);
+    padding:1rem 1.2rem;
+    font-size:.95rem;
+    color:var(--tinta);
+    margin:.4rem 0;
+  }
+  .citacao span{ display:block; margin-top:.5rem; font-size:.75rem; color:var(--tinta-fraca); }
+
+  /* ===== LINHA DO TEMPO ===== */
+  .tempo{
+    position:relative;
+    padding-left:1.6rem;
+    border-left:2px solid var(--papel-linha);
+  }
+  .marco{
+    position:relative;
+    padding-bottom:1.6rem;
+  }
+  .marco:last-child{ padding-bottom:0; }
+  .marco::before{
+    content:"";
+    position:absolute;
+    left:-1.85rem; top:.25rem;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--destaque);
+    border:2px solid var(--papel);
+    box-shadow:0 0 0 1px var(--papel-linha);
+  }
+  .marco .ano{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700;
+    color:var(--destaque);
+    font-size:.95rem;
+  }
+  .marco p{ font-size:.95rem; margin-top:.2rem; color:var(--tinta); }
+
+  /* ===== ESPÉCIMES (hello world em várias linguagens) ===== */
+  .especimes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1rem;
+  }
+  .especime{
+    background:var(--papel-2);
+    border:1px solid var(--papel-linha);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .especime .cabecalho-esp{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:.6rem .9rem;
+    border-bottom:1px dashed var(--papel-linha);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--tinta-fraca);
+  }
+  .especime .cabecalho-esp .lingua{ color:var(--tinta); font-weight:600; }
+  .especime pre{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.82rem;
+    padding:.9rem;
+    overflow-x:auto;
+    color:var(--tinta);
+    white-space:pre;
+  }
+  .especime .nota{
+    padding:0 .9rem .9rem;
+    font-size:.78rem;
+    color:var(--tinta-fraca);
+  }
+
+  /* ===== CURIOSIDADES ===== */
+  .curiosidades{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:1rem;
+  }
+  .curiosidade{
+    position:relative;
+    background:var(--papel);
+    border:1px solid var(--papel-linha);
+    border-radius:var(--radius);
+    padding:1.1rem 1.1rem 1rem;
+  }
+  .curiosidade .carimbo-txt{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.62rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--carimbo);
+    border:1px solid var(--carimbo);
+    border-radius:3px;
+    padding:.15rem .4rem;
+    transform:rotate(-2deg);
+    margin-bottom:.6rem;
+  }
+  .curiosidade p{ font-size:.92rem; }
+
+  /* ===== RODAPÉ ===== */
+  footer{
+    max-width:920px;
+    margin:4rem auto 0;
+    padding:1.6rem 1.5rem 0;
+    border-top:1px dashed var(--papel-linha);
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:.72rem;
+    color:var(--tinta-fraca);
+    letter-spacing:.04em;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    h1 .cursor{ animation:none; opacity:1; }
+  }
+</style>
 </head>
 <body>
 
-    <div id="audio-unlocker">Toque na tela para ativar som ambiente espacial</div>
+<header>
+  <div class="selo"><span class="ponto"></span> Dossiê nº 000001 · desde 1972</div>
+  <h1>Olá, Mundo<span class="cursor"></span></h1>
+  <p class="subtitulo">A frase mais digitada da história da computação — de onde veio, por que pegou, e como cada linguagem decidiu dizer a mesma coisa de um jeito diferente.</p>
+</header>
 
-    <div class="bg-audio">
-        <iframe
-            id="bg-iframe"
-            width="1"
-            height="1"
-            src="https://www.youtube.com/embed/X-XZx1o_w-A?autoplay=1&mute=1&loop=1&playlist=X-XZx1o_w-A&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3"
-            title="Música ambiente espacial"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+<main>
+
+  <section>
+    <div class="rotulo-secao"><span class="num">01</span><h2>Origem</h2><div class="fio"></div></div>
+    <div class="origem">
+      <p>O costume nasceu com <strong>Brian Kernighan</strong>, num manual interno dos Laboratórios Bell. Em 1972, ele escreveu um tutorial da linguagem <strong>B</strong> e usou como primeiro exemplo um programinha que só imprimia uma saudação — a ideia era mostrar, da forma mais curta possível, que o compilador estava funcionando e que o programador tinha controle sobre a máquina.</p>
+      <div class="citacao">
+        hello, world
+        <span>— saída do exemplo original de Kernighan, "A Tutorial Introduction to the Language B" (1972)</span>
+      </div>
+      <p>O formato pegou de vez em 1978, quando Kernighan reaproveitou a ideia — agora em maiúsculas e com pontuação — no livro que ele escreveu com Dennis Ritchie, <strong>"The C Programming Language"</strong>. Dali em diante, "Hello, World!" virou o teste de fumaça padrão de praticamente toda linguagem nova: se ele roda, o ambiente está configurado.</p>
     </div>
+  </section>
 
-    <div class="stars"></div>
-
-    <div class="content">
-        <h1>Via Láctea 2026</h1>
-        <p class="subtitle">
-            As maiores descobertas e imagens do coração da nossa galáxia – Março 2026<br>
-            Inclui a maior imagem já feita do centro galáctico (fevereiro 2026) e flares recentes em Sgr A* observados pelo JWST
-        </p>
-
-        <div class="gallery">
-            <img src="https://www.eso.org/public/images/eso2603a/" alt="Maior imagem ALMA do centro da Via Láctea – filamentos de gás molecular (Fev 2026)">
-            <img src="https://science.nasa.gov/asset/webb/flaring-disk-around-milky-ways-black-hole-artists-concept" alt="Conceito artístico: Disco de acreção e flares em Sagittarius A* (JWST)">
-            <img src="https://www.universetoday.com/wp-content/uploads/2026/03/ALMA-Milky-Way-Core.jpg" alt="Rede de filamentos gasosos no CMZ – ALMA 2026">
-        </div>
-
-        <nav class="menu">
-            <a href="https://www.nasa.gov/missions/roman-space-telescope/journey-to-center-of-milky-way-with-upcoming-nasa-roman-core-survey" target="_blank" rel="noopener noreferrer" class="btn official">NASA Roman – Viagem ao Centro da Via Láctea (Core Survey 2026)</a>
-            <a href="https://www.eso.org/public/news/eso2603/" target="_blank" rel="noopener noreferrer" class="btn official">ESO/ALMA – Maior imagem do coração da Via Láctea (Fev 2026)</a>
-            <a href="https://science.nasa.gov/missions/webb" target="_blank" rel="noopener noreferrer" class="btn">JWST – Observações recentes de flares em Sagittarius A* (2025–2026)</a>
-            <a href="https://www.cosmos.esa.int/web/gaia/release" target="_blank" rel="noopener noreferrer" class="btn">ESA/Gaia DR4 – Mapa 3D mais preciso da Via Láctea (Dez 2026)</a>
-            <a href="https://www.eventhorizontelescope.org/" target="_blank" rel="noopener noreferrer" class="btn">Event Horizon Telescope – Atualizações de imagens de Sgr A* (2025/2026)</a>
-        </nav>
+  <section>
+    <div class="rotulo-secao"><span class="num">02</span><h2>Linha do tempo</h2><div class="fio"></div></div>
+    <div class="tempo">
+      <div class="marco">
+        <div class="ano">1972</div>
+        <p>Brian Kernighan usa "hello, world" pela primeira vez, num manual da linguagem B nos Bell Labs.</p>
+      </div>
+      <div class="marco">
+        <div class="ano">1978</div>
+        <p>O livro K&amp;R ("The C Programming Language") populariza a versão "Hello, World!" — com maiúscula e exclamação — e a espalha por gerações de programadores.</p>
+      </div>
+      <div class="marco">
+        <div class="ano">anos 1980–90</div>
+        <p>Vira ritual de manuais e cursos: quase toda linguagem nova (Pascal, BASIC, Perl, depois Python, Java) adota o mesmo exemplo de abertura.</p>
+      </div>
+      <div class="marco">
+        <div class="ano">anos 2000 em diante</div>
+        <p>Passa a ser usado também fora do código-fonte: como teste de "primeira mensagem" em protocolos, APIs, placas de hardware e até em transmissões simbólicas de dispositivos no espaço.</p>
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Unlocker de áudio (obrigatório por política de autoplay dos navegadores)
-        const unlocker = document.getElementById('audio-unlocker');
-        if (unlocker) {
-            unlocker.addEventListener('click', () => {
-                unlocker.style.opacity = '0';
-                setTimeout(() => { unlocker.remove(); }, 900);
+  <section>
+    <div class="rotulo-secao"><span class="num">03</span><h2>O mesmo recado, em vozes diferentes</h2><div class="fio"></div></div>
+    <div class="especimes">
 
-                const iframe = document.getElementById('bg-iframe');
-                if (iframe) {
-                    let src = iframe.src;
-                    if (src.includes('mute=1')) {
-                        src = src.replace('mute=1', 'mute=0');
-                        iframe.src = src;  // recarrega com som
-                    }
-                }
-            }, { once: true });
-        }
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">C</span><span>1972 / 1978</span></div>
+        <pre>#include &lt;stdio.h&gt;
 
-        // Estrelas de fundo aleatórias
-        const starsContainer = document.querySelector('.stars');
-        for (let i = 0; i < 180; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            const size = Math.random() * 3 + 1;
-            star.style.width = star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + 'vw';
-            star.style.top = Math.random() * 100 + 'vh';
-            star.style.animationDelay = Math.random() * 10 + 's';
-            starsContainer.appendChild(star);
-        }
-    </script>
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}</pre>
+        <div class="nota">A versão que originou todas as outras.</div>
+      </div>
+
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">Python</span><span>1991</span></div>
+        <pre>print("Hello, World!")</pre>
+        <div class="nota">Uma linha só — parte do motivo de a linguagem ser tão usada para ensinar.</div>
+      </div>
+
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">JavaScript</span><span>1995</span></div>
+        <pre>console.log("Hello, World!");</pre>
+        <div class="nota">A primeira linha de código de boa parte da web moderna.</div>
+      </div>
+
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">Assembly x86</span><span>Linux, NASM</span></div>
+        <pre>section .data
+  msg db "Hello, World!", 0xa
+section .text
+  global _start
+_start:
+  mov edx, 14
+  mov ecx, msg
+  mov ebx, 1
+  mov eax, 4
+  int 0x80</pre>
+        <div class="nota">Nada de bibliotecas prontas: cada byte é escrito à mão.</div>
+      </div>
+
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">Brainfuck</span><span>1993</span></div>
+        <pre>++++++++[&gt;++++[&gt;++
+&gt;+++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;+&gt;+
+&gt;-&gt;&gt;+[&lt;]&lt;-]&gt;&gt;.&gt;---.
++++++++..+++.&gt;&gt;.&lt;-
+.&lt;.+++.------.-----
+-.&gt;&gt;+.&gt;++.</pre>
+        <div class="nota">Linguagem esotérica com só 8 comandos — imprimir texto vira quebra-cabeça.</div>
+      </div>
+
+      <div class="especime">
+        <div class="cabecalho-esp"><span class="lingua">COBOL</span><span>1959</span></div>
+        <pre>IDENTIFICATION DIVISION.
+PROGRAM-ID. HELLO.
+PROCEDURE DIVISION.
+    DISPLAY "Hello, World!".
+    STOP RUN.</pre>
+        <div class="nota">Sintaxe quase inglesa — pensada nos anos 1950 para "ler como um relatório".</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="rotulo-secao"><span class="num">04</span><h2>Curiosidades soltas</h2><div class="fio"></div></div>
+    <div class="curiosidades">
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Recorde</span>
+        <p>Na linguagem esotérica <strong>Malbolge</strong>, criada de propósito para ser quase impossível de programar, o primeiro "Hello, World!" que funcionou levou <strong>cerca de dois anos</strong> para ser escrito — e nem foi feito à mão, e sim gerado por um algoritmo de busca.</p>
+      </div>
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Tamanho</span>
+        <p>Em <strong>C</strong> ou <strong>Python</strong>, o programa cabe em uma linha. Em <strong>Assembly</strong> puro, o mesmo resultado pode passar de 15 linhas — a diferença mostra visualmente quanto cada linguagem abstrai do hardware.</p>
+      </div>
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Ritual</span>
+        <p>Para grande parte dos programadores, "Hello, World!" é literalmente a primeira coisa que aparece na tela depois de configurar um ambiente novo — funciona como uma prova de vida do sistema antes de qualquer coisa mais complexa.</p>
+      </div>
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Fora do código</span>
+        <p>O termo saiu do terminal: hoje é usado como expressão do dia a dia em times de tecnologia para descrever qualquer "primeiro teste simples" de algo novo, mesmo fora da programação.</p>
+      </div>
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Hardware</span>
+        <p>Antes de rodar qualquer programa "de verdade", quase toda placa, microcontrolador ou kit de robótica novo tem seu próprio "hello world" — geralmente piscar um LED, o equivalente físico de imprimir texto na tela.</p>
+      </div>
+
+      <div class="curiosidade">
+        <span class="carimbo-txt">Curiosidade</span>
+        <p>Kernighan não imaginava que a frase se tornaria um padrão global — era só um exemplo rápido de manual interno. Meio século depois, é provavelmente o trecho de código mais reescrito da história.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Dossiê compilado para fins de curiosidade — sem garantia de retorno em produção · exit code 0
+</footer>
+
 </body>
 </html>
